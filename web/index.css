@@ -1,0 +1,209 @@
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    body {
+        font-family: 'Inter', sans-serif; /* Changed to Inter for a cleaner, modern look */
+        background-color: #f5f7fa; /* Softer off-white background for a cleaner feel */
+        color: #1f2a44; /* Darker, professional text color */
+    }
+    
+    .gradient-bg {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%); /* Updated gradient with richer, modern tones */
+    }
+    
+    .platform-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.15); /* Softer, more modern shadow */
+        transition: all 0.3s ease; /* Smooth transition for hover effects */
+    }
+    
+    .download-btn {
+        transition: all 0.3s ease;
+        background-color: #ffffff; /* Clean white for buttons */
+        color: #4f46e5; /* Matches gradient start for consistency */
+        border: 2px solid transparent; /* Added for subtle border effect on hover */
+    }
+    
+    .download-btn:hover {
+        transform: scale(1.05);
+        background-color: #f5f7fa; /* Slight off-white on hover */
+        border-color: #4f46e5; /* Subtle border to match gradient */
+        color: #1f2a44; /* Darker text for contrast */
+    }
+    
+    .pulse-animation {
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.6); /* Matches gradient start */
+        }
+        70% {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 12px rgba(79, 70, 229, 0); /* Slightly larger pulse effect */
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+        }
+    }
+    
+    .floating {
+        animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(12px); } /* Reduced amplitude for subtlety */
+        100% { transform: translateY(0); }
+    }
+    
+    /* Additional Enhancements */
+    header {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for header */
+    }
+    
+    nav a {
+        color: #ffffff; /* White for better contrast */
+        font-weight: 500; /* Medium weight for better readability */
+    }
+    
+    nav a:hover {
+        color: #e0e7ff; /* Soft indigo for hover */
+    }
+    
+    h1, h2, h3, h4 {
+        color: #1f2a44; /* Darker, professional heading color */
+    }
+    
+    .text-gray-600 {
+        color: #4b5563; /* Slightly darker gray for better contrast */
+    }
+    
+    .bg-gray-50 {
+        background-color: #f9fafb; /* Lighter, cleaner background for cards */
+    }
+    
+    .bg-indigo-100 {
+        background-color: #e0e7ff; /* Softer indigo for feature icons */
+    }
+    
+    .text-indigo-600 {
+        color: #4f46e5; /* Matches gradient for consistency */
+    }
+    
+    .bg-indigo-600 {
+        background-color: #4f46e5; /* Matches gradient for how-it-works steps */
+    }
+    
+    .text-indigo-100 {
+        color: #e0e7ff; /* Softer indigo for secondary text in gradient sections */
+    }
+    
+    .text-indigo-200 {
+        color: #c7d2fe; /* Lighter indigo for subtle text */
+    }
+    
+    footer {
+        background-color: #111827; /* Darker, richer footer background */
+    }
+    
+    .text-gray-400 {
+        color: #9ca3af; /* Lighter gray for footer text */
+    }
+    
+    .text-gray-500 {
+        color: #6b7280; /* Slightly darker for footer copyright */
+    }
+    
+    .platform-card {
+        border-color: #e5e7eb; /* Softer border color */
+    }
+    
+    .platform-card .bg-red-100 {
+        background-color: #fee2e2; /* Softer red for YouTube */
+    }
+    
+    .platform-card .bg-pink-100 {
+        background-color: #fce7f3; /* Softer pink for Instagram */
+    }
+    
+    .platform-card .bg-blue-100 {
+        background-color: #dbeafe; /* Softer blue for Facebook */
+    }
+    
+    .platform-card .bg-cyan-100 {
+        background-color: #cffafe; /* Softer cyan for TikTok */
+    }
+    
+    .platform-card .bg-purple-100 {
+        background-color: #ede9fe; /* Softer purple for Snapchat */
+    }
+    
+    .platform-card .bg-red-100 .text-red-600 {
+        color: #dc2626; /* Vibrant red for YouTube icon */
+    }
+    
+    .platform-card .bg-pink-100 .text-pink-600 {
+        color: #db2777; /* Matches gradient end for Instagram icon */
+    }
+    
+    .platform-card .bg-blue-100 .text-blue-600 {
+        color: #2563eb; /* Vibrant blue for Facebook icon */
+    }
+    
+    .platform-card .bg-cyan-100 .text-black {
+        color: #1f2a44; /* Darker for TikTok icon for contrast */
+    }
+    
+    .platform-card .bg-red-100 .text-blue-400 {
+        color: #3b82f6; /* Vibrant blue for Twitter icon */
+    }
+    
+    .platform-card .bg-purple-100 .text-yellow-400 {
+        color: #facc15; /* Vibrant yellow for Snapchat icon */
+    }
+    
+    /* Input and Button Styling */
+    input#single-url {
+        border: 1px solid #d1d5db; /* Softer gray border */
+        background-color: #ffffff; /* Clean white background */
+        padding: 0.75rem 1rem; /* Comfortable padding */
+        border-radius: 0.5rem; /* Rounded corners */
+        transition: border-color 0.3s ease;
+    }
+    
+    input#single-url:focus {
+        outline: none;
+        border-color: #4f46e5; /* Matches gradient for focus state */
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); /* Subtle focus ring */
+    }
+    
+    button {
+        background-color: #4f46e5; /* Matches gradient for buttons */
+        color: #ffffff; /* White text for contrast */
+        padding: 0.75rem 1.5rem; /* Comfortable padding */
+        border-radius: 0.5rem; /* Rounded corners */
+        font-weight: 500; /* Medium weight for readability */
+        transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+        background-color: #7c3aed; /* Slightly lighter on hover */
+    }
+    
+    select#quality-select {
+        border: 1px solid #d1d5db; /* Softer gray border */
+        background-color: #ffffff; /* Clean white background */
+        padding: 0.75rem 1rem; /* Comfortable padding */
+        border-radius: 0.5rem; /* Rounded corners */
+        transition: border-color 0.3s ease;
+    }
+    
+    select#quality-select:focus {
+        outline: none;
+        border-color: #4f46e5; /* Matches gradient for focus state */
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); /* Subtle focus ring */
+    }

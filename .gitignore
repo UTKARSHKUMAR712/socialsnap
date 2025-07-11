@@ -1,0 +1,73 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+
+# VS Code settings
+.vscode/
+
+# Python-specific logs and test outputs
+*.log
+*.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+
+# Dependency files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environments
+.env
+*.env
+
+# Jupyter notebooks checkpoint
+.ipynb_checkpoints/
+
+# macOS & Windows files
+.DS_Store
+Thumbs.db
+
+# System files
+*.swp
+*.bak
+*.tmp
+
+# Model weights or large files
+*.ckpt
+*.pth
+*.pt
+*.gguf
+
+# Build, distribution, and packaging
+build/
+dist/
+downloads/
+*.egg-info/
+*.spec
+*.whl
+*.tar.gz
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Node and frontend (if applicable)
+node_modules/
+*.lock
+
+# LLM-specific or synthesis artifacts
+output_audio/
+output_text/
+cache/
+
+# Custom folders (optional)
+temp/
+data/
+artifacts/

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialSnap - Download Videos from Any Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <script src="script.js" defer></script>
+     <script src="model.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="model.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="gradient-bg text-white">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-video text-2xl"></i>
+                    <h1 class="text-2xl font-bold">SocialSnap</h1>
+                </div>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#" class="hover:text-indigo-200 transition">Home</a></li>
+                        <li><a href="#features" class="hover:text-indigo-200 transition">Features</a></li>
+                        <li><a href="#how-it-works" class="hover:text-indigo-200 transition">How It Works</a></li>
+                        <li><a href="#supported" class="hover:text-indigo-200 transition">Supported Platforms</a></li>
+                    </ul>
+                </nav>
+                <button class="md:hidden text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-16 md:py-24" id="Home">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Download Videos from Any Social Media Platform</h1>
+                <p class="text-lg mb-8 text-indigo-100">Fast, secure, and unlimited downloads from YouTube, Instagram, TikTok, Facebook, and 600+ more. No registration required.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+             
+             <div class="container">
+            <h2 style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.25rem; color: #e0e7ff; white-space: nowrap;">🎯 Download from Any Media URL</h2>
+            <input id="single-url" type="text" placeholder="Paste your video URL here..." style="flex: 1; padding: 0.6rem 0.8rem; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 0.375rem; background-color: rgba(255, 255, 255, 0.15); color: #ffffff; font-size: 0.9rem; outline: none; min-width: 200px;" />
+            <button onclick="fetchFormats()" style="padding: 0.6rem 1rem; background-color: rgba(255, 255, 255, 0.2); color: #e0e7ff; border: none; border-radius: 0.375rem; font-weight: 500; cursor: pointer; white-space: nowrap;">🔍 Detect Available Formats</button>
+            <select id="quality-select" style="padding: 0.6rem 0.8rem; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 0.375rem; background-color: rgba(255, 255, 255, 0.15); color: #1f2a44; font-size: 0.9rem; appearance: none; background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 fill=%22%23ffffff%22 viewBox=%220 0 16 16%22%3E%3Cpath d=%22M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z%22/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 0.8rem center; cursor: pointer; min-width: 150px;">
+                <option disabled selected>Choose quality...</option>
+            </select>
+            <button onclick="downloadSelected()" style="padding: 0.75rem 1.5rem; background-color: #db2777; color: #ffffff; border: none; border-radius: 0.5rem; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); text-transform: uppercase; letter-spacing: 0.05rem; white-space: nowrap;">
+                <span id="single-spinner" class="spinner hidden" style="display: inline;">⏳</span>
+                <span id="single-text" style="display: inline;">Download</span>
+            </button>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #facc15; display: flex; align-items: center; gap: 0.25rem; width: 100%; text-align: center;">
+                📁 Files will save to the <code style="background-color: rgba(250, 204, 21, 0.3); padding: 0.1rem 0.2rem; border-radius: 0.25rem;">downloads/</code> folder
+            </p>
+        </div>
+   
+                </div>
+                <p class="mt-4 text-sm text-indigo-200">Supports: MP4, MP3, HD, 4K, and more</p>
+            </div>
+              <div class="md:w-1/2 flex justify-center space-x-4 mt-6 md:mt-0">
+                <p><i class="fab fa-twitter text-blue-600 text-7xl md:text-7xl floating" style="animation-delay: 0.2s"></i>
+                    <i class="fab fa-youtube text-red-600 text-7xl md:text-7xl floating"></i>
+                    <i class="fab fa-instagram text-pink-600 text-7xl md:text-7xl floating" style="animation-delay: 0.2s"></i>
+                <i class="fab fa-facebook text-blue-600 text-7xl md:text-7xl floating" style="animation-delay: 0.2s"></i></p>
+                <p>
+                    <i class="fa-brands fa-reddit text-orange-500 icon text-6xl floating" style="animation-delay: 0.2s"></i>
+                    <i class="fa-brands fa-twitch text-purple-600 icon text-6xl floating" style="animation-delay: 0.3s"></i>
+                    <i class="fa-brands fa-vimeo text-blue-500 icon text-4xl floating" style="animation-delay: 0.4s"></i>
+                    <i class="fa-brands fa-dailymotion text-blue-700 icon text-6xl floating" style="animation-delay: 0.5s"></i>
+                    <i class="fa-brands fa-tiktok text-black icon text-6xl floating" style="animation-delay: 0.1s"></i>
+                    <span class="text-gray-600 font-medium ml-8">600+ more</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose SocialSnap?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Our platform offers the best experience for downloading your favorite videos from social media.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Lightning Fast</h3>
+                    <p class="text-gray-600">Download videos in seconds with our high-speed servers. No waiting time.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">100% Safe</h3>
+                    <p class="text-gray-600">No malware, no viruses. Your privacy and security are our top priority.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-infinity text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Unlimited Downloads</h3>
+                    <p class="text-gray-600">Download as many videos as you want without any restrictions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">How It Works</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Downloading videos has never been easier. Just follow these simple steps.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-indigo-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">1</div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Copy Video URL</h3>
+                    <p class="text-gray-600">Copy the link of the video you want to download from any supported platform.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-indigo-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">2</div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Paste It Here</h3>
+                    <p class="text-gray-600">Paste the URL in the input field above and click the download button.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-indigo-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">3</div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Download & Enjoy</h3>
+                    <p class="text-gray-600">Choose your preferred format and quality, then download your video.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Supported Platforms -->
+<section id="supported" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Supported Platforms</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">We support downloading from all major social media platforms and more.</p>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <!-- Existing Platforms -->
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fab fa-youtube text-red-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">YouTube</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fab fa-instagram text-pink-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">Instagram</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fab fa-facebook text-blue-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">Facebook</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fab fa-tiktok text-black text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">TikTok</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fab fa-twitter text-blue-400 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">Twitter</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fab fa-snapchat text-yellow-400 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">Snapchat</h3>
+            </div>
+
+            <!-- Additional Platforms -->
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-video text-green-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">Dailymotion</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-newspaper text-blue-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">CNN</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-microphone text-yellow-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">SoundCloud</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-play text-indigo-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">Vimeo</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-globe text-teal-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">BBC</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-film text-orange-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">Twitch</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-headphones text-purple-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">Spotify</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-camera text-red-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">Instagram Reels</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-tshirt text-blue-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">TikTok Clips</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-book text-green-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">Khan Academy</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-music text-yellow-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">Bandcamp</h3>
+            </div>
+            <div class="platform-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 transition duration-300 flex flex-col items-center">
+                <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-tv text-indigo-600 text-3xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-800">Netflix</h3>
+            </div>
+        </div>
+        <div class="text-center mt-8">
+            <a href="#" id="view-all-link" class="text-indigo-600 hover:text-indigo-800 font-medium">View All Supported Platforms</a>
+        </div>
+    </div>
+</section>
+
+<!-- Modal for Full Platform List -->
+<div id="platform-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>All Supported Platforms</h2>
+            <span class="close-modal">×</span>
+        </div>
+        <div id="platform-grid" class="platform-grid"></div>
+    </div>
+</div>
+
+
+    <!-- CTA Section -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Download Your Videos?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto text-indigo-100">Start downloading your favorite videos now. It's free, fast, and easy to use!</p>
+          <button class="bg-white text-indigo-600 font-bold py-3 px-8 rounded-full hover:bg-indigo-50 transition download-btn pulse-animation" id="start-btn">
+    <i class="fas fa-start mr-2"></i> Start Now
+</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-video text-2xl text-indigo-400"></i>
+                        <h3 class="text-xl font-bold">SocialSnap</h3>
+                    </div>
+                    <p class="text-gray-400">The fastest and most reliable social media video downloader.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition">Features</a></li>
+                        <li><a href="#how-it-works" class="text-gray-400 hover:text-white transition">How It Works</a></li>
+                        <li><a href="#supported" class="text-gray-400 hover:text-white transition">Supported Platforms</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">DMCA</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-envelope mr-2"></i> utkarshshanu712@gmail.com</li>
+                        <!-- <li class="flex items-center text-gray-400"><i class="fas fa-phone mr-2"></i> +1 (123) 456-7890</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 123 Street, City, Country</li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>© 2023 SocialSnap. All rights reserved. Made with ❤️ by Utkarsh Kumar</p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
