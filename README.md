@@ -36,7 +36,28 @@ Check out SocialSnap in action! (Add a GIF or video link here once available, e.
 1. Clone the repository:
    ```bash
    git clone https://github.com/UTKARSHKUMAR712/socialsnap.git
-2.Run it:
 
+  
+3.Run it:
+ Ensure Git LFS is installed (git lfs install) to access FFmpeg executables.
+ 
     python python main.py  
+
+Description:
+Introducing SocialSnap, a powerful and user-friendly web tool for downloading videos from over 600 social media platforms, including YouTube, Instagram, TikTok, Facebook, and more. This initial release brings a modern interface with features like fast downloads, quality selection (MP4, MP3, HD, 4K), and secure, unlimited access—no registration required.Key Features:Cross-Platform Support: Download from 600+ platforms with a single click.
+Audio Merging: Integrated FFmpeg (ffmpeg.exe, ffplay.exe, ffprobe.exe) for advanced audio processing, managed via Git LFS.
+Dynamic UI: Sleek design with animated icons, a responsive layout, and a modal for viewing supported platforms.
+Ease of Use: Simple URL pasting and format detection with a "Download" button.
+
+Installation:Clone the repository: git clone https://github.com/UTKARSHKUMAR712/socialsnap.git
+Ensure Git LFS is installed (git lfs install) to access FFmpeg executables.
+Known Limitations:FFmpeg executables are large and require Git LFS for full functionality.
+Initial release; future updates will include mobile optimization and additional features.
+
+Contributors:  Developed by Utkarsh Kumar.
+
+Support:  Contact: shshanuutkarsh712@gmail.com  
+Report issues on the GitHub repository.
+
+
    
