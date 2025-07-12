@@ -3,11 +3,52 @@
 **Download videos from any social media platform with ease!** SocialSnap is a cutting-edge, user-friendly tool that lets you grab videos from YouTube, Instagram, TikTok, Facebook, and over 600+ other platforms in a snap. With a sleek interface, fast downloads, and no registration required, it’s your go-to solution for capturing content.
 
 - **Creator**: Utkarsh Kumar
-- **Version**: 1.0.0
+- **Version**: 2.0.0
 - **Last Updated**: 12:05 PM IST, Friday, July 11, 2025
 - **Website**: [Coming Soon] | [GitHub](https://github.com/your-username/socialsnap)
+<img width="1919" height="1078" alt="Screenshot 2025-07-12 123840" src="https://github.com/user-attachments/assets/64c9cce8-3fe4-417a-805f-9c28026f22b0" />
+<img width="1919" height="1079" alt="Screenshot 2025-07-12 123853" src="https://github.com/user-attachments/assets/ec6e9850-ae3b-41bb-84d0-9a8d4133e181" />
 
 ---
+## ✨ What’s New
+Real-time download progress bar
+Now shows live percentage updates during downloading, giving instant feedback.
+
+Detailed status & merging info
+Displays the current file name, merging status, and clear completion messages directly in the UI.
+
+ETA & Speed display ready
+Backend hooked with yt-dlp hooks; front-end is structured to show ETA and speed (expandable in future updates).
+
+Playlist support improved
+Each video in a playlist is now downloaded in order, with per-item progress and status.
+
+Smart merging with FFmpeg
+Automatically merges separate video+audio streams into a single MP4 file using FFmpeg, with error handling and cleanup.
+
+Safe, clean file naming
+Automatically sanitizes filenames to avoid filesystem errors.
+
+Custom Downloads directory
+Media is saved under ~/Downloads/SocialSnap on all systems for easy access.
+
+## 🐛 Fixes & Stability
+Fixed critical Rectangle.op_Equality crash by properly isolating the webview.js_api object.
+
+Fixed lambda() threading bug that caused TypeError on window binding.
+
+Enhanced error reporting for unavailable formats and FFmpeg failures.
+
+## ⚙ Tech Stack
+Python 3.12
+
+yt-dlp for downloading
+
+FFmpeg for merging
+
+pywebview for cross-platform GUI
+
+Custom HTML/JS front-end with dynamic JS bridge
 
 ## ✨ Features
 
@@ -29,35 +70,14 @@ Check out SocialSnap in action! (Add a GIF or video link here once available, e.
 ## 🚀 Getting Started
 
 ### Prerequisites
-- A modern web browser (Chrome, Firefox, Safari, Edge).
+
 - Stable internet connection.
 
 ### Installation
 1. Clone the repository:
    ```bash
    git clone https://github.com/UTKARSHKUMAR712/socialsnap.git
+2.Run it:
 
-  
-3.Run it:
- Ensure Git LFS is installed (git lfs install) to access FFmpeg executables.
- 
     python python main.py  
-
-Description:
-Introducing SocialSnap, a powerful and user-friendly web tool for downloading videos from over 600 social media platforms, including YouTube, Instagram, TikTok, Facebook, and more. This initial release brings a modern interface with features like fast downloads, quality selection (MP4, MP3, HD, 4K), and secure, unlimited access—no registration required.Key Features:Cross-Platform Support: Download from 600+ platforms with a single click.
-Audio Merging: Integrated FFmpeg (ffmpeg.exe, ffplay.exe, ffprobe.exe) for advanced audio processing, managed via Git LFS.
-Dynamic UI: Sleek design with animated icons, a responsive layout, and a modal for viewing supported platforms.
-Ease of Use: Simple URL pasting and format detection with a "Download" button.
-
-Installation:Clone the repository: git clone https://github.com/UTKARSHKUMAR712/socialsnap.git
-Ensure Git LFS is installed (git lfs install) to access FFmpeg executables.
-Known Limitations:FFmpeg executables are large and require Git LFS for full functionality.
-Initial release; future updates will include mobile optimization and additional features.
-
-Contributors:  Developed by Utkarsh Kumar.
-
-Support:  Contact: shshanuutkarsh712@gmail.com  
-Report issues on the GitHub repository.
-
-
    
