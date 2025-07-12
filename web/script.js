@@ -15,6 +15,13 @@ function fetchFormats() {
         option.textContent = format.label;
         select.appendChild(option);
       });
+      if (result.thumbnail) {
+        const thumb = document.getElementById("video-thumbnail");
+        if (thumb) {
+          thumb.src = result.thumbnail;
+          thumb.style.display = "block";
+        }
+      }
       setDownloadText("Download");
     } else {
       alert("❌ Error loading formats: " + result.message);
@@ -29,16 +36,14 @@ function downloadSelected() {
   if (!url || !formatId) return alert("⚠️ URL and format selection are required.");
 
   setDownloadText("⏳ Downloading...");
-  document.getElementById("single-spinner").classList.remove("hidden");
+  updateProgressBar(0);
+  updateCurrentName("");
 
   window.pywebview.api.download(url, formatId).then(response => {
-    document.getElementById("single-spinner").classList.add("hidden");
     const result = JSON.parse(response);
     setDownloadText("Download");
-
-    if (result.status === "success") {
-      alert("✅ Download complete: " + result.title);
-    } else {
+    if (result.status !== "success") {
+      updateCurrentName("❌ Failed");
       alert("❌ Download failed: " + result.message);
     }
   });
@@ -47,7 +52,10 @@ function downloadSelected() {
 function setDownloadText(text) {
   document.getElementById("single-text").textContent = text;
 }
-
- document.getElementById("start-btn").addEventListener("click", () => {
-        document.getElementById("Home").scrollIntoView({ behavior: "smooth" });
-    });
+function updateProgressBar(percent) {
+  document.getElementById("progress-bar").style.width = percent + "%";
+  document.getElementById("progress-text").textContent = percent + "%";
+}
+function updateCurrentName(name) {
+  document.getElementById("current-name").textContent = name;
+}
