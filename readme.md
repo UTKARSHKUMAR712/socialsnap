@@ -6,6 +6,8 @@
 - **Version**: 2.0.0
 - **Last Updated**: 12:05 PM IST, Friday, July 11, 2025
 - **Website**: [Coming Soon] | [GitHub](https://github.com/your-username/socialsnap)
+<img width="1919" height="1078" alt="Screenshot 2025-07-12 123840" src="https://github.com/user-attachments/assets/64c9cce8-3fe4-417a-805f-9c28026f22b0" />
+<img width="1919" height="1079" alt="Screenshot 2025-07-12 123853" src="https://github.com/user-attachments/assets/ec6e9850-ae3b-41bb-84d0-9a8d4133e181" />
 
 ---
 ## ✨ What’s New
