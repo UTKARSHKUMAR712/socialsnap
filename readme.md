@@ -3,11 +3,50 @@
 **Download videos from any social media platform with ease!** SocialSnap is a cutting-edge, user-friendly tool that lets you grab videos from YouTube, Instagram, TikTok, Facebook, and over 600+ other platforms in a snap. With a sleek interface, fast downloads, and no registration required, it’s your go-to solution for capturing content.
 
 - **Creator**: Utkarsh Kumar
-- **Version**: 1.0.0
+- **Version**: 2.0.0
 - **Last Updated**: 12:05 PM IST, Friday, July 11, 2025
 - **Website**: [Coming Soon] | [GitHub](https://github.com/your-username/socialsnap)
 
 ---
+## ✨ What’s New
+Real-time download progress bar
+Now shows live percentage updates during downloading, giving instant feedback.
+
+Detailed status & merging info
+Displays the current file name, merging status, and clear completion messages directly in the UI.
+
+ETA & Speed display ready
+Backend hooked with yt-dlp hooks; front-end is structured to show ETA and speed (expandable in future updates).
+
+Playlist support improved
+Each video in a playlist is now downloaded in order, with per-item progress and status.
+
+Smart merging with FFmpeg
+Automatically merges separate video+audio streams into a single MP4 file using FFmpeg, with error handling and cleanup.
+
+Safe, clean file naming
+Automatically sanitizes filenames to avoid filesystem errors.
+
+Custom Downloads directory
+Media is saved under ~/Downloads/SocialSnap on all systems for easy access.
+
+## 🐛 Fixes & Stability
+Fixed critical Rectangle.op_Equality crash by properly isolating the webview.js_api object.
+
+Fixed lambda() threading bug that caused TypeError on window binding.
+
+Enhanced error reporting for unavailable formats and FFmpeg failures.
+
+## ⚙ Tech Stack
+Python 3.12
+
+yt-dlp for downloading
+
+FFmpeg for merging
+
+pywebview for cross-platform GUI
+
+Custom HTML/JS front-end with dynamic JS bridge
 
 ## ✨ Features
 
