@@ -68,7 +68,7 @@ Check out SocialSnap in action! (Add a GIF or video link here once available, e.
 ## 🚀 Getting Started
 
 ### Prerequisites
-- A modern web browser (Chrome, Firefox, Safari, Edge).
+
 - Stable internet connection.
 
 ### Installation
