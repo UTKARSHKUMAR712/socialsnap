@@ -10,6 +10,9 @@
 <img width="1919" height="1079" alt="Screenshot 2025-07-12 123853" src="https://github.com/user-attachments/assets/ec6e9850-ae3b-41bb-84d0-9a8d4133e181" />
 
 ---
+
+### First please Download and put ffmpeg.exe this is must othere like ffplay.exe,ffprobe.exe is not must it will work as it is but recomended
+
 ## ✨ What’s New
 Real-time download progress bar
 Now shows live percentage updates during downloading, giving instant feedback.
